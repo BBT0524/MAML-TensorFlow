@@ -40,8 +40,8 @@ for datatype in ['train', 'val', 'test']:
             label = row[1]
             image_name = row[0]
             if label != last_label:
-                # cur_dir = datatype + '/' + label + '/'            # for windows
-                cur_dir = datatype + '\\' + label + '\\'
+                # cur_dir = datatype + '/' + label + '/'            
+                cur_dir = datatype + '\\' + label + '\\'             # for windows
                 os.system('mkdir ' + cur_dir)
                 last_label = label
             # os.system('mv images/' + image_name + ' ' + cur_dir)
