@@ -35,12 +35,14 @@ for datatype in ['train', 'val', 'test']:
         reader = csv.reader(f, delimiter=',')
         last_label = ''
         for i, row in enumerate(reader):
-            if i == 0:  # skip the headers
+            if i == 0:  # skip the headersclear
                 continue
             label = row[1]
             image_name = row[0]
             if label != last_label:
-                cur_dir = datatype + '/' + label + '/'
+                # cur_dir = datatype + '/' + label + '/'            # for windows
+                cur_dir = datatype + '\\' + label + '\\'
                 os.system('mkdir ' + cur_dir)
                 last_label = label
-            os.system('mv images/' + image_name + ' ' + cur_dir)
+            # os.system('mv images/' + image_name + ' ' + cur_dir)
+            os.system('move images\\' + image_name + ' ' + cur_dir)  # for windows
